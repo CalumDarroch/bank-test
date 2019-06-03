@@ -10,6 +10,7 @@ class Account
   end
 
   def deposit(amount)
+    @balance += amount
     deposit = Transaction.new(amount)
     @transactions << deposit
   end

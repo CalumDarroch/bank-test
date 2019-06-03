@@ -17,6 +17,12 @@ describe Account do
       subject.deposit(500)
       expect(subject.transactions[0]).to be_instance_of(Transaction)
     end
+
+    it 'increases the account balance' do
+      subject.deposit(500)
+      expect(subject.balance).to eq(500)
+    end
+
   end
 
 end
