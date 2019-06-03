@@ -15,6 +15,6 @@ One interesting challenge was that, as I built my tests and wrote code to pass t
 
 A little research yielded the answer: it seems that if you run all of your RSpec tests at once, RSpec requires all your classes and they become available to one another for the purposes of the tests. However, if you run a test individually on a class that does not require a necessary class, the test now returns the expected failure.
 
-![printer test fail](https://github.com/CalumDarroch/bank-test/blob/master/images/Screenshot%202019-06-03%20at%2019.01.06.png)
+![printer test fail](https://github.com/CalumDarroch/bank-test/blob/master/img/Screenshot%202019-06-03%20at%2019.01.06.png)
 
 ### Technologies
