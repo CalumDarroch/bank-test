@@ -22,7 +22,19 @@ describe Account do
       subject.deposit(500)
       expect(subject.balance).to eq(500)
     end
+  end
 
+  describe '#withdraw' do
+    it 'creates a new transaction' do
+      subject.withdraw(500)
+      expect(subject.transactions[0]).to be_instance_of(Transaction)
+    end
+
+    it 'decreases the account balance' do
+      subject.deposit(5000)
+      subject.withdraw(500)
+      expect(subject.balance).to eq(4500)
+    end
   end
 
 end

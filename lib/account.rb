@@ -15,4 +15,10 @@ class Account
     @transactions << deposit
   end
 
+  def withdraw(amount)
+    @balance -= amount
+    withdrawal = Transaction.new(-amount)
+    @transactions << withdrawal
+  end
+
 end
