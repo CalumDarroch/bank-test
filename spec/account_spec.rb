@@ -12,4 +12,11 @@ describe Account do
     end
   end
 
+  describe '#deposit' do
+    it 'creates a new transaction' do
+      subject.deposit(500)
+      expect(subject.transactions[0]).to be_instance_of(Transaction)
+    end
+  end
+
 end
