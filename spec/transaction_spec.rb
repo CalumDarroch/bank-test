@@ -10,6 +10,10 @@ describe Transaction do
       allow(Time).to receive(:now).and_return Time.new(2007,04,10, 12,0,0, "+01:00")
       expect(subject.date).to eq('10-04-2007')
     end
+
+    it 'initializes with an amount' do
+      expect(subject.amount).to eq(1000)
+    end
   end
 
 end
