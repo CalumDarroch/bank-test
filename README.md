@@ -1,15 +1,15 @@
-#Bank App
+# Bank App
 
-###Tech test
+### Tech test
 
-###Brief and Approach
-
-
+### Brief and Approach
 
 
 
 
-###Challenges
+
+
+### Challenges
 
 One interesting challenge was that, as I built my tests and wrote code to pass them, I noticed that some tests asking whether objects were instances of certain classes were passing when they shouldn't. For example, my printer class initializes with an instance of an account on it. Despite not requiring my Account class in the Printer class file, all my RSpec tests still passed.
 
@@ -17,4 +17,4 @@ A little research yielded the answer: it seems that if you run all of your RSpec
 
 ![printer test fail](./images/Screenshot 2019-06-03 at 19.01.06.png)
 
-###Technologies
+### Technologies
