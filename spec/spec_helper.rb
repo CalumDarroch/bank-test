@@ -1,5 +1,3 @@
-ENV['ENVIRONMENT'] = 'test'
-
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
