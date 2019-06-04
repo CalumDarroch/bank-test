@@ -17,4 +17,6 @@ A little research yielded the answer: it seems that if you run all of your RSpec
 
 ![printer test fail](https://github.com/CalumDarroch/bank-test/blob/master/img/Screenshot%202019-06-03%20at%2019.01.06.png)
 
+Relationship between classes began to get messy. I refactored the printer class to not have an account as an attribute, and instead simply contain a method for printing that takes an array as an argument. This allowed me to mock transactions on it!
+
 ### Technologies

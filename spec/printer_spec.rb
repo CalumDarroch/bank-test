@@ -1,25 +1,21 @@
 require 'printer'
 
 describe Printer do
+  let(:deposit) { double('deposit', date: '10-04-2007', amount: 500, balance: 500) }
+  let(:withdrawal) { double('withdrawal', date: '11-04-2007', amount: -200, balance: 300) }
 
-  describe '#initialize' do
-    it 'initializes with an account as an attribute' do
-      expect(subject.account).to be_instance_of(Account)
-    end
-  end
+  describe '#print' do
+    let(:transactions) { [deposit, withdrawal] }
 
-  describe '#print_statement' do
     it 'should print a header line and a line for each transaction' do
-      subject.account.deposit(500)
-      subject.account.withdraw(200)
       expect(STDOUT).to receive(:puts).exactly(3).times
-      subject.print_statement
+      subject.print(transactions)
     end
 
-    it 'should print a proper header' do
-      expect(STDOUT).to receive(:puts).with('date || credit || debit || balance')
-      subject.print_statement
+    it 'should print a properly formatted statement' do
+      expect { subject.print(transactions) }.to output("date || credit || debit || balance\n11-04-2007 || || 200 || 300\n10-04-2007 || 500 || || 500\n").to_stdout
     end
+
   end
 
 end
