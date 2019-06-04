@@ -81,7 +81,17 @@ So that I can keep track of my incomings and outgoings,
 I want to be able to view a record of all my transactions with the dates they occurred.
 ```
 
+I decided that my program would require at least 3 classes: an `Account` class that would store a balance and a list of transactions, a `Transaction` class that would contain a record of each transaction (whether a deposit or a withdrawal) and a `Printer` class that could display the information to the user in an easily readable format, as per the brief above.
 
+I began by creating the Account class, which initializes with an empty array which can be filled with Transactions. It allows the user to `deposit` and `withdraw` money, and contains an instance variable `@account_balance` which keeps track of the account's total balance, and also allows the balance at the time of a transaction to be recorded on a Transaction instance.
+
+The Transaction class initializes with three instance variables: `@date` calculated with `Time.now` (and formatted using `strftime`), the `@amount` transferred, and the `@balance` on the account as the result of that transaction.
+
+Finally, the Printer class contains a `print` method which takes an array of Transactions as an argument, and `puts` each of them to the console in reverse order (i.e. latest transaction first) with reference headers.
+
+Finally, the Account class initalizes with a Printer object stored on it, and has a `print_statement` method which tells the printer to run its `print` method with the Account's `@transactions` array provided as an argument.
+
+This relationship between the classes allows the user to interact with all of them simply in the REPL (e.g. if an instance of the Account class is assigned to a variable "account", the user need only type `account.print_statement` to view their statement, despite it running a method on the Printer class). Also, the Transaction and Printer classes are completely isolated from the Account class for testing. 
 
 ### Challenges
 
