@@ -3,7 +3,7 @@ require 'date'
 
 describe Transaction do
 
-  subject { described_class.new(1000) }
+  subject { described_class.new(1000, 400) }
 
   describe '#initialize' do
     it 'initializes with a date in %d-%m-%Y format' do
@@ -13,6 +13,10 @@ describe Transaction do
 
     it 'initializes with an amount' do
       expect(subject.amount).to eq(1000)
+    end
+
+    it 'initializes with a balance' do
+      expect(subject.balance).to eq(400)
     end
   end
 

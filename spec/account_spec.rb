@@ -4,7 +4,7 @@ describe Account do
 
   describe '#initialize' do
     it 'initializes with a balance of zero' do
-      expect(subject.balance).to eq(0)
+      expect(subject.account_balance).to eq(0)
     end
 
     it 'initializes with an empty list of transactions' do
@@ -20,7 +20,7 @@ describe Account do
 
     it 'increases the account balance' do
       subject.deposit(500)
-      expect(subject.balance).to eq(500)
+      expect(subject.account_balance).to eq(500)
     end
   end
 
@@ -33,7 +33,7 @@ describe Account do
     it 'decreases the account balance' do
       subject.deposit(5000)
       subject.withdraw(500)
-      expect(subject.balance).to eq(4500)
+      expect(subject.account_balance).to eq(4500)
     end
   end
 

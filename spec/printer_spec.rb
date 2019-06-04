@@ -15,6 +15,11 @@ describe Printer do
       expect(STDOUT).to receive(:puts).exactly(3).times
       subject.print_statement
     end
+
+    it 'should print a proper header' do
+      expect(STDOUT).to receive(:puts).with('date || credit || debit || balance')
+      subject.print_statement
+    end
   end
 
 end

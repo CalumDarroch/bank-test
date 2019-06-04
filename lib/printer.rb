@@ -12,13 +12,13 @@ class Printer
     puts 'date || credit || debit || balance'
     @account.transactions.reverse.each do |transaction|
       if transaction.amount.positive?
-        puts "#{transaction.date} || #{transaction.amount} || || #{account.balance}"
+        puts "#{transaction.date} || #{transaction.amount} || || #{transaction.balance}"
       elsif transaction.amount.negative?
-        puts "#{transaction.date} || || #{transaction.amount.abs} || #{account.balance}"
+        puts "#{transaction.date} || || #{transaction.amount.abs} || #{transaction.balance}"
       else
-        puts "#{transaction.date} || || || #{account.balance}"
+        puts "#{transaction.date} || || || #{transaction.balance}"
       end
     end
-  end  
+  end
 
 end
