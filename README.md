@@ -35,11 +35,11 @@ The following brief was provided:
 - Data can be kept in memory (it doesn't need to be stored to a database or anything).
 
 **Acceptance criteria**
-Given a client makes a deposit of 1000 on 10-01-2012
-And a deposit of 2000 on 13-01-2012
-And a withdrawal of 500 on 14-01-2012
-When she prints her bank statement
-Then she would see
+- Given a client makes a deposit of 1000 on 10-01-2012
+- And a deposit of 2000 on 13-01-2012
+- And a withdrawal of 500 on 14-01-2012
+- When she prints her bank statement
+- Then she would see:
 ```
 date || credit || debit || balance
 14/01/2012 || || 500.00 || 2500.00
@@ -85,11 +85,17 @@ I decided that my program would require at least 3 classes: an `Account` class t
 
 I began by creating the Account class, which initializes with an empty array which can be filled with Transactions. It allows the user to `deposit` and `withdraw` money, and contains an instance variable `@account_balance` which keeps track of the account's total balance, and also allows the balance at the time of a transaction to be recorded on a Transaction instance.
 
+![running in IRB](https://github.com/CalumDarroch/bank-test/blob/master/img/Screenshot%202019-06-04%20at%2020.13.13.png)
+
+![account_balance](https://github.com/CalumDarroch/bank-test/blob/master/img/Screenshot%202019-06-04%20at%2020.14.21.png)
+
 The Transaction class initializes with three instance variables: `@date` calculated with `Time.now` (and formatted using `strftime`), the `@amount` transferred, and the `@balance` on the account as the result of that transaction.
 
 Finally, the Printer class contains a `print` method which takes an array of Transactions as an argument, and `puts` each of them to the console in reverse order (i.e. latest transaction first) with reference headers.
 
 Finally, the Account class initalizes with a Printer object stored on it, and has a `print_statement` method which tells the printer to run its `print` method with the Account's `@transactions` array provided as an argument.
+
+![print_statement](https://github.com/CalumDarroch/bank-test/blob/master/img/Screenshot%202019-06-04%20at%2020.13.55.png)
 
 This relationship between the classes allows the user to interact with all of them simply in the REPL (e.g. if an instance of the Account class is assigned to a variable "account", the user need only type `account.print_statement` to view their statement, despite it running a method on the Printer class). Also, the Transaction and Printer classes are completely isolated from the Account class for testing. 
 
@@ -104,3 +110,8 @@ A little research yielded the answer: it seems that if you run all of your RSpec
 Over time, the relationships between classes began to get messy. I refactored the Printer class to not have an Account as an attribute, and instead simply contain a method for printing that takes an array (of Transactions) as an argument. This allowed me to mock Transactions on it and test the Printer in isolation. I then applied the same approach to my Transaction class using dependency injection for the date.
 
 ### Technologies
+
+- Ruby
+- RSpec
+- SimpleCov
+- Rubocop
