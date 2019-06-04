@@ -13,7 +13,7 @@ describe Printer do
     end
 
     it 'should print a properly formatted statement' do
-      expect { subject.print(transactions) }.to output("date || credit || debit || balance\n11-04-2007 || || 200 || 300\n10-04-2007 || 500 || || 500\n").to_stdout
+      expect { subject.print(transactions) }.to output("date || credit || debit || balance\n11-04-2007 || || 200.00 || 300.00\n10-04-2007 || 500.00 || || 500.00\n").to_stdout
     end
 
   end
