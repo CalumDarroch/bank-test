@@ -8,7 +8,12 @@ describe Account do
     end
 
     it 'initializes with an empty list of transactions' do
+      expect(subject.transactions).to be_instance_of(Array)
       expect(subject.transactions).to be_empty
+    end
+
+    it 'initializes with a Printer object' do
+      expect(subject.printer).to be_instance_of(Printer)
     end
   end
 
@@ -37,4 +42,11 @@ describe Account do
     end
   end
 
+  describe '#print_statement' do
+    it 'instructs the printer object to print transactions to the console' do
+      expect(subject.printer).to receive(:print).with([])
+      subject.print_statement
+    end
+  end
+  
 end
