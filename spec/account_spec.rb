@@ -27,6 +27,10 @@ describe Account do
       subject.deposit(500)
       expect(subject.account_balance).to eq(500)
     end
+
+    it 'will return an error if you try to deposit 0' do
+      expect { subject.deposit(0) }.to raise_error('Cannot deposit an amount of 0')
+    end
   end
 
   describe '#withdraw' do
@@ -40,6 +44,10 @@ describe Account do
       subject.withdraw(500)
       expect(subject.account_balance).to eq(4500)
     end
+
+    it 'will return an error if you try to withdraw 0' do
+      expect { subject.withdraw(0) }.to raise_error('Cannot withdraw an amount of 0')
+    end
   end
 
   describe '#print_statement' do
@@ -48,5 +56,5 @@ describe Account do
       subject.print_statement
     end
   end
-  
+
 end
